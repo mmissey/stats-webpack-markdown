@@ -41,8 +41,16 @@ const createAssetsStats = function (settings) {
         outFilePath,
         `${headerTemplate}${majorAssetsTemplate}${allAssetsTemplate}`
     );
+
+    const formatted =  majorAssets.map((item) => ({
+        Bundle: item.name,
+        'Old Size': item.oldSize.toFixed(2) + 'kb',
+        'New Size': item.newSize.toFixed(2) + 'kb',
+        Difference: item.diff.toFixed(2) + 'kb',
+        Percent: item.pdiff.toFixed(2)+'%',
+    }));
     console.log('Major Bundle Changes');
-    console.table(majorAssets);
+    console.table(formatted);
     console.log(`Created report file in ${outFilePath}`);
 };
 

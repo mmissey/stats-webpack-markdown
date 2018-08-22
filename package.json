@@ -19,9 +19,8 @@
   "private": false,
   "dependencies": {
     "commander": "2.13.0",
-    "console.table": "^0.10.0",
-    "lodash": "^4.17.4"
-  },
+    "console.table": "^0.10.0"
+    },
   "devDependencies": {
     "eslint": "^4.17.0",
     "jest": "^22.1.4"
