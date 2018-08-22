@@ -6,7 +6,7 @@ const map = function(stats) {
     return stats.assets.reduce((acc, current) => {
         const chunkName = _.head(current.chunkNames);
         const extention = current.name.split('.').pop();
-        const name = chunkName ? `${chunkName}.${extention}` : current.name;
+        const name = chunkName ? `${chunkName}.${extention}` : current.name.split('.')[0];
         acc[name] = current.size;
         return acc;
     }, {});

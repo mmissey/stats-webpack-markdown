@@ -5,6 +5,7 @@ const assetsLoader = require('./assetsUtils/assetsLoader');
 const assetStatsFormatter = require('./templates/assetStatsFormatter');
 const templateFormatter = require('./templates/templateFormatter');
 const fs = require('fs');
+require('console.table');
 
 const createAssetsStats = function (settings) {
     const assetStats = assetsLoader.getAssetsStats(settings.oldStats, settings.newStats)
@@ -40,6 +41,8 @@ const createAssetsStats = function (settings) {
         outFilePath,
         `${headerTemplate}${majorAssetsTemplate}${allAssetsTemplate}`
     );
+    console.log('Major Bundle Changes');
+    console.table(majorAssets);
     console.log(`Created report file in ${outFilePath}`);
 };
 
